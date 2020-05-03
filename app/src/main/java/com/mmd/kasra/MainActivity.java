@@ -1,8 +1,12 @@
 package com.mmd.kasra;
 
+import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -28,4 +32,17 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        SubMenu gyroLab = menu.addSubMenu("Gyro lab");
+        gyroLab.add("first").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, GyroLabActivity.class));
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
+    }
 }

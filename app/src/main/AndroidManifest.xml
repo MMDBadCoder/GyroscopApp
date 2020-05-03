@@ -4,6 +4,13 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <uses-feature
+        android:name="android.hardware.sensor.proximity"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,9 +18,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GyroLabActivity"></activity>
+
         <service
             android:name=".AlarmService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity android:name=".AlarmActivity" />
         <activity
