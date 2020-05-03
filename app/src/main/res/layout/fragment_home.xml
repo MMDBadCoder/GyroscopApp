@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbarSize="16dp"
     tools:context=".ui.home.HomeFragment">
 
     <TextView
@@ -20,7 +21,6 @@
         android:minHeight="64dp"
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
-        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,4 +33,22 @@
         android:layout_marginRight="8dp"
         app:layout_constraintBaseline_toBaselineOf="@+id/time_textView"
         app:layout_constraintEnd_toEndOf="@+id/time_textView" />
+
+    <SeekBar
+        android:id="@+id/intensity_seekbar"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:max="10"
+        android:progress="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_textView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

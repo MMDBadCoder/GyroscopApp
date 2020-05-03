@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <service
+            android:name=".AlarmService2"
+            android:enabled="true"
+            android:exported="true"></service>
+        <service
             android:name=".AlarmService"
             android:exported="false"></service>
 

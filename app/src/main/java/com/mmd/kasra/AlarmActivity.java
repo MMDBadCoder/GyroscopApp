@@ -2,30 +2,39 @@ package com.mmd.kasra;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.VibrationEffect;
+import android.os.IBinder;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class AlarmActivity extends AppCompatActivity {
+public class AlarmActivity extends AppCompatActivity{
 
-    private Button dismissButton;
+    private int intensity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarm);
-        final Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        final long[] pattern = {1000, 1000, 2000, 2000};
-        vibrator.vibrate(pattern, 0);
-        dismissButton = findViewById(R.id.dismiss_button);
-        dismissButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                vibrator.cancel();
-            }
-        });
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        intensity = this.getIntent().getIntExtra("intensity", 0);
+        Intent intent = new Intent(this, AlarmService.class);
+        intent.putExtra("intensity", intensity);
+        startService(intent);
+    }
+
+
 }
