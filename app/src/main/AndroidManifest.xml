@@ -18,11 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GyroLabActivity"></activity>
+        <activity android:name=".VibrationRecognitionActivity"></activity>
+        <activity android:name=".GyroLabActivity" />
 
         <service
             android:name=".AlarmService"
             android:exported="false" />
+        <service android:name=".MediaService" /> <!-- <service -->
 
         <activity android:name=".AlarmActivity" />
         <activity

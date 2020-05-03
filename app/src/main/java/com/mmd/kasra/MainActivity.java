@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        menu.add("vibration recognition").setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                startActivity(new Intent(MainActivity.this, VibrationRecognitionActivity.class));
+                return false;
+            }
+        });
         return super.onCreateOptionsMenu(menu);
     }
 }
