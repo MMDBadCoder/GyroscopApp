@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.util.Log;
 
@@ -24,6 +25,9 @@ public class AlarmService extends IntentService implements SensorEventListener {
         super("AlarmService");
     }
 
+
+    final Handler handler = new Handler();
+
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.i(TAG, "onHandleIntent: started");
@@ -35,6 +39,12 @@ public class AlarmService extends IntentService implements SensorEventListener {
             intensity = intent.getIntExtra("intensity", 0);
             Log.i(TAG, "onHandleIntent: " + intensity);
             startVibration();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    stopVibration();
+                }
+            }, 60 * 1000);
         }
     }
 
