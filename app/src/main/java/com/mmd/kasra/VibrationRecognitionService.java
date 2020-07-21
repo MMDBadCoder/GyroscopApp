@@ -15,7 +15,7 @@ import android.os.PowerManager;
 import androidx.annotation.Nullable;
 
 
-public class MediaService extends Service implements SensorEventListener {
+class MediaService extends Service implements SensorEventListener {
     private MediaPlayer player;
     private float sensitivity;
 
